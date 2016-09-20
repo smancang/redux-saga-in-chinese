@@ -75,7 +75,7 @@ function* subtask2() {
 }
 ```
 
-`yield cancel(task)` 将触发 `subtask` 任务的取消，反过来它将触发 `subtask2` 的取消。
+`yield cancel(task)` 将触发 `subtask` 任务的取消， 继而它将触发 `subtask2` 的取消。
 `subtask2` 中将抛出一个 `SagaCancellationException` 错误，然后另一个 `SagaCancellationException` 错误将会在 `subtask` 中抛出。
  如果 `subtask` 没有处理取消异常，一条警告信息将在控制台中打印出来，以警告开发者（如果 `process.env.NODE_ENV` 变量存在，并且它被设置为 `development`，就仅仅会打印日志信息而不是警告信息）。
 
